@@ -32,19 +32,19 @@
 *
 * constructor for Exosite class
 *=============================================================================*/
-Exosite::Exosite(Client *_client)
+Exosite::Exosite(TCPClient *_client)
 {
   client = _client;
   fetchNVCIK();
 }
 
-Exosite::Exosite(const char *_cik, Client *_client)
+Exosite::Exosite(const char *_cik, TCPClient *_client)
 {
   strncpy(cik, _cik, 41);
   client = _client;
 }
 
-Exosite::Exosite(const String _cik, Client *_client)
+Exosite::Exosite(const String _cik, TCPClient *_client)
 {
   _cik.toCharArray(cik, 41);
   client = _client;

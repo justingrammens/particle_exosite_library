@@ -44,7 +44,7 @@
 class Exosite
 {
   private:
-    class Client* client;
+    class TCPClient* client;
     char cik[41];
     char rxdata[200];
     char aliasList[50];
@@ -62,9 +62,9 @@ class Exosite
 
   public:
     // Constructor
-    Exosite(Client *_client);
-    Exosite(const char *_cik, Client *_client);
-    Exosite(const String _cik, Client *_client);
+    Exosite(TCPClient *_client);
+    Exosite(const char *_cik, TCPClient *_client);
+    Exosite(const String _cik, TCPClient *_client);
 
     // Current Methods
     boolean writeRead(const char* writeString,const char* readString, char** returnString);
