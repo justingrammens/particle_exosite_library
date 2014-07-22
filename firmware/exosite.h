@@ -28,6 +28,7 @@
 #ifndef exosite_h
 #define exosite_h
 
+#include "application.h"
 
 #define serverName          "m2.exosite.com"
 #define ACTIVATOR_VERSION   F("0.0.1")
