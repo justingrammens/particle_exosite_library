@@ -1,3 +1,4 @@
+#include "exosite/exosite.h"
 /*==============================================================================
 * Configuration Variables
 *
