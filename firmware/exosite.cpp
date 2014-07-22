@@ -27,6 +27,11 @@
 
 #include "exosite.h"
 
+
+#ifndef SPARK
+  #define SPARK F("???")
+#endif
+
 /*==============================================================================
 * Exosite
 *
@@ -78,8 +83,8 @@ boolean Exosite::writeRead(const char* writeString, const char* readString, char
     client->println(F("Host: m2.exosite.com"));
     client->print(F("User-Agent: Exosite-Activator/"));
     client->print(ACTIVATOR_VERSION);
-    client->print(F(" Arduino/"));
-    client->println(ARDUINO);
+    client->print(F(" SPARK/"));
+    client->println(SPARK);
     client->print(F("X-Exosite-CIK: ")); 
     client->println(cik);
     client->println(F("Accept: application/x-www-form-urlencoded; charset=utf-8"));
@@ -297,8 +302,8 @@ boolean Exosite::provision(const char* vendorString, const char* modelString, co
     client->println(F("Host: m2.exosite.com"));
     client->print(F("User-Agent: Exosite-Activator/"));
     client->print(ACTIVATOR_VERSION);
-    client->print(F(" Arduino/"));
-    client->println(ARDUINO);
+    client->print(F(" Spark/"));
+    client->println(SPARK);
     client->println(F("Content-Type: application/x-www-form-urlencoded; charset=utf-8"));
     client->print(F("Content-Length: "));
     client->println(strlen(writeString)); //calculate length
@@ -386,7 +391,7 @@ boolean Exosite::provision(const char* vendorString, const char* modelString, co
 *=============================================================================*/
 boolean Exosite::saveNVCIK(){
   for(int i = 0; i < 40; i++){
-    write(CIK_EEPROM_ADDRESS + i, cik[i]);
+    EEPROM.write(CIK_EEPROM_ADDRESS + i, cik[i]);
   }
 
   return true;
@@ -403,7 +408,7 @@ boolean Exosite::fetchNVCIK(){
   char tempBuf[41];
 
   for(int i = 0; i < 40; i++){
-    tempBuf[i] = read(CIK_EEPROM_ADDRESS + i);
+    tempBuf[i] = EEPROM.read(CIK_EEPROM_ADDRESS + i);
   }
   tempBuf[40] = 0;
 
@@ -443,8 +448,8 @@ unsigned long Exosite::time(){
     client->println(F("Host: m2.exosite.com"));
     client->print(F("User-Agent: Exosite-Activator/"));
     client->print(ACTIVATOR_VERSION);
-    client->print(F(" Arduino/"));
-    client->println(ARDUINO);
+    client->print(F(" Spark/"));
+    client->println(SPARK);
     client->println();
 
     // Read from the nic or the IC buffer overflows with no warning and goes out to lunch
