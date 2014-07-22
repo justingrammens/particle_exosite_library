@@ -41,17 +41,6 @@
   #define CIK_EEPROM_ADDRESS 0 //Takes Addresses 0 - 39 (dec)
 #endif
 
-// Do not Edit Past This Point
-
-#include <SPI.h>
-#include <Client.h>
-#include <EEPROM.h>
-
-
-#if EXOSITEDEBUG > 2
-#include <MemoryFree.h>
-#endif
-
 class Exosite
 {
   private:
