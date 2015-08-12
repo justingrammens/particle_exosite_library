@@ -1,14 +1,16 @@
 Pre-Release Warning
 ===================
-This library is a fresh port, it's more likely to not work than it is to work. Use at your own risk.
+This library is a release candidate. Some parts of it may not work properly under certain circumstances. Feel free to submit issues if you come across any problems.
 
 About the Exosite Arduino Library
 =================================
-This library allows you to quickly and easily connect your Spark project to Exosite's Data Platform in the cloud. See the examples folder for example use.
+This library allows you to quickly and easily connect your Particle project to Exosite's Data Platform in the cloud. See the examples folder for example use.
 
 Note: A free account on exosite portals is required: https://portals.exosite.com
 
-License is BSD 3-Clause, Copyright 2014, Exosite LLC (see LICENSE file)
+Tested on a [Particle Photon](https://store.particle.io/?product=particle-photon)
+
+License is BSD 3-Clause, Copyright 2015, Exosite LLC (see LICENSE file)
 
 Interface
 =========
