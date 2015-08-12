@@ -2,7 +2,7 @@ Pre-Release Warning
 ===================
 This library is a release candidate. Some parts of it may not work properly under certain circumstances. Feel free to submit issues if you come across any problems.
 
-About the Exosite Arduino Library
+About the Exosite Particle Library
 =================================
 This library allows you to quickly and easily connect your Particle project to Exosite's Data Platform in the cloud. See the examples folder for example use.
 
@@ -31,7 +31,7 @@ Exosite(String _cik, Client *_client);
 
 `_cik`: This is used to hard code the CIK into the device can either be a `char[]` or a `String` type. This parameter can be omitted when using provisioning.
 
-`_client`: This is the interface to what ever network device you're using. On the current Spark Core it will always be a `TcpClient`.
+`_client`: This is the interface to what ever network device you're using. On the current Particle Photon it will always be a `TCPClient`.
 
 writeRead
 ---------
