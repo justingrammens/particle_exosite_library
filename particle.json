@@ -1,6 +1,6 @@
 {
     "name": "exosite",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Patrick Barrett <PatrickBarrett@exosite.com>",
     "license": "BSD 3-Clause",
     "description": "Connect to the Exosite Platform Quickly and Easily"

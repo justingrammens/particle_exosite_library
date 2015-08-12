@@ -2,20 +2,20 @@
 //
 // exosite.cpp - Prototypes for the Exosite Cloud API
 //
-// Copyright (c) 2012 Exosite LLC.  All rights reserved.
-// 
-// Redistribution and use in source and binary forms, with or without 
+// Copyright (c) 2015 Exosite LLC.  All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 
 //  * Redistributions of source code must retain the above copyright notice,
 //    this list of conditions and the following disclaimer.
-//  * Redistributions in binary form must reproduce the above copyright 
+//  * Redistributions in binary form must reproduce the above copyright
 //    notice, this list of conditions and the following disclaimer in the
 //    documentation and/or other materials provided with the distribution.
 //  * Neither the name of Exosite LLC nor the names of its contributors may
-//    be used to endorse or promote products derived from this software 
+//    be used to endorse or promote products derived from this software
 //    without specific prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED "AS IS" AND WITH ALL FAULTS.
 // NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT
 // NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -85,7 +85,7 @@ boolean Exosite::writeRead(const char* writeString, const char* readString, char
     client->print(ACTIVATOR_VERSION);
     client->print(F(" SPARK/"));
     client->println(SPARK);
-    client->print(F("X-Exosite-CIK: ")); 
+    client->print(F("X-Exosite-CIK: "));
     client->println(cik);
     client->println(F("Accept: application/x-www-form-urlencoded; charset=utf-8"));
     client->println(F("Content-Type: application/x-www-form-urlencoded; charset=utf-8"));
@@ -99,19 +99,19 @@ boolean Exosite::writeRead(const char* writeString, const char* readString, char
     #if EXOSITEDEBUG > 1
       Serial.println(F("Sent"));
     #endif
-    
+
     while ((timeout_time > time_now) && RxLoop) {
       if (client->available()) {
         if (!DataRx)
           DataRx= true;
-        
+
         c = client->read();
         rxdata[stringPos] = c;
 
         #if EXOSITEDEBUG > 2
           Serial.print(c);
         #endif
-        
+
         stringPos += 1;
       } else {
         #if EXOSITEDEBUG > 4
@@ -127,12 +127,12 @@ boolean Exosite::writeRead(const char* writeString, const char* readString, char
               Serial.println("HTTP Response:");
               Serial.println(rxdata);
             #endif
-  
+
           if (strstr(rxdata, "HTTP/1.1 200 OK")) {
             #ifdef EXOSITEDEBUG
               Serial.println(F("HTTP Status: 200"));
             #endif
-  
+
             ret = true;
             varPtr = strstr(rxdata, "\r\n\r\n") + 4;
 
@@ -146,7 +146,7 @@ boolean Exosite::writeRead(const char* writeString, const char* readString, char
             #ifdef EXOSITEDEBUG
               Serial.println(F("HTTP Status: 204"));
             #endif
-  
+
             ret = true;
           } else {
             #ifdef EXOSITEDEBUG
@@ -157,7 +157,7 @@ boolean Exosite::writeRead(const char* writeString, const char* readString, char
 
               Serial.println(rxdata);
             #endif
-          }  
+          }
         }
       }
       time_now = millis();
@@ -182,7 +182,7 @@ boolean Exosite::writeRead(const char* writeString, const char* readString, char
 /*==============================================================================
 * writeRead
 *
-* One step read and write to Exosite using Arduino String objects.
+* One step read and write to Exosite using Particle String objects.
 *=============================================================================*/
 boolean Exosite::writeRead(const String &writeString, const String &readString, String &returnString){
   #if EXOSITEDEBUG > 2
@@ -273,7 +273,7 @@ boolean Exosite::provision(const char* vendorString, const char* modelString, co
                           strlen(snString) +
                           strlen(vendorParameter) +
                           strlen(modelParameter) +
-                          strlen(snParameter) + 
+                          strlen(snParameter) +
                           1;
   char *writeString = (char*)malloc(sizeof(char) * (writeStringLen));
 
@@ -316,15 +316,15 @@ boolean Exosite::provision(const char* vendorString, const char* modelString, co
       Serial.print(F("Sent: "));
       Serial.println(writeString);
     #endif
-    
+
     while ((timeout_time > time_now)) {
       if (client->available()) {
         if (!DataRx)
           DataRx= true;
-        
+
         c = client->read();
         rxdata[stringPos] = c;
-        
+
         stringPos += 1;
       } else {
         rxdata[stringPos] = 0;
@@ -414,11 +414,9 @@ boolean Exosite::fetchNVCIK(){
 
   if(strlen(tempBuf) == 40){
     strcpy(cik, tempBuf);
-    Serial.print(F("Read CIK: "));
-    Serial.println(cik);
     return true;
-  }else{
-    Serial.println(F("Warning: No CIK in NV Memory."));
+  }
+  else {
     return false;
   }
 }
@@ -458,15 +456,15 @@ unsigned long Exosite::time(){
     #ifdef EXOSITEDEBUG
       Serial.print(F("Sent"));
     #endif
-    
+
     while ((timeout_time > time_now)) {
       if (client->available()) {
         if (!DataRx)
           DataRx= true;
-        
+
         c = client->read();
         rxdata[stringPos] = c;
-        
+
         stringPos += 1;
       } else {
         rxdata[stringPos] = 0;

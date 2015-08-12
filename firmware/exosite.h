@@ -2,20 +2,20 @@
 //
 // exosite.h - Prototypes for the Exosite Cloud API
 //
-// Copyright (c) 2012 Exosite LLC.  All rights reserved.
-// 
-// Redistribution and use in source and binary forms, with or without 
+// Copyright (c) 2015 Exosite LLC.  All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 
 //  * Redistributions of source code must retain the above copyright notice,
 //    this list of conditions and the following disclaimer.
-//  * Redistributions in binary form must reproduce the above copyright 
+//  * Redistributions in binary form must reproduce the above copyright
 //    notice, this list of conditions and the following disclaimer in the
 //    documentation and/or other materials provided with the distribution.
 //  * Neither the name of Exosite LLC nor the names of its contributors may
-//    be used to endorse or promote products derived from this software 
+//    be used to endorse or promote products derived from this software
 //    without specific prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED "AS IS" AND WITH ALL FAULTS.
 // NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT
 // NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -31,9 +31,9 @@
 #include "application.h"
 
 #define serverName          "m2.exosite.com"
-#define ACTIVATOR_VERSION   F("0.0.1")
+#define ACTIVATOR_VERSION   F("0.0.2")
 
-// Select a Debug Level: 
+// Select a Debug Level:
 //#define EXOSITEDEBUG 1
 //#define EXOSITEDEBUG 2
 //#define EXOSITEDEBUG 3
