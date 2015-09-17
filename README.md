@@ -1,10 +1,10 @@
 Pre-Release Warning
 ===================
-This library is a release candidate. Some parts of it may not work properly under certain circumstances. Feel free to submit issues if you come across any problems.
+This library is a release candidate. While we beleive it to work and be feature complete it has not undergone thorough testing so there may be instability and some parts of it may not work properly under certain circumstances. Feel free to submit issues if you come across any problems.
 
 About the Exosite Particle Library
 =================================
-This library allows you to quickly and easily connect your Particle project to Exosite's Data Platform in the cloud. See the examples folder for example use.
+This library allows you to quickly and easily connect your Particle project directly to Exosite's cloud data platform. See the examples folder for example use. We suggest starting with the [ReadWriteString](https://github.com/exosite-garage/particle_exosite_library/blob/master/firmware/examples/ReadWriteString.ino) example if you are new to Exosite's platform.
 
 Note: A free account on exosite portals is required: https://portals.exosite.com
 
