@@ -36,7 +36,7 @@
 // Select a Debug Level:
 //#define EXOSITEDEBUG 1
 //#define EXOSITEDEBUG 2
-#define EXOSITEDEBUG 3
+//#define EXOSITEDEBUG 3
 
 #ifndef CIK_EEPROM_ADDRESS
   #define CIK_EEPROM_ADDRESS 0 //Takes Addresses 0 - 39 (dec)
